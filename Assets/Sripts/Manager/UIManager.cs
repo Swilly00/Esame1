@@ -9,6 +9,10 @@ public class UIManager : MonoBehaviour
     [SerializeField] Image fillHealthBar;
     [SerializeField] GameObject endPanel;
     [SerializeField] TMP_Text killedEnemy;
+    [SerializeField] Button tNormal;
+    [SerializeField] Button tSMG;
+    [SerializeField] Button tArea;
+    
 
 
 
@@ -37,7 +41,46 @@ public class UIManager : MonoBehaviour
     }
     private void SetMoneyUI(int money)
     {
-        moneyText.text = (money.ToString()+ " $");
+        
+        moneyText.text = (money.ToString() + " $");
+        if (money < 15)
+        {
+            
+            tNormal.interactable = false;
+            tSMG.interactable = false;
+            tArea.interactable = false;
+            GameManager.instance.turretNormalActiveMoney = false;
+            GameManager.instance.turretAreaActiveMoney = false;
+            GameManager.instance.turretSMGActiveMoney = false;
+
+        }
+        else if (money >= 25)
+        {
+            tNormal.interactable = true;
+            tSMG.interactable = true;
+            tArea.interactable = true;
+            GameManager.instance.turretNormalActiveMoney = true;
+            GameManager.instance.turretAreaActiveMoney = true;
+            GameManager.instance.turretSMGActiveMoney = true;
+        }
+        else if (money >= 20)
+        {
+            tNormal.interactable = true;
+            tSMG.interactable = true;
+            tArea.interactable = false;
+            GameManager.instance.turretNormalActiveMoney = true;
+            GameManager.instance.turretSMGActiveMoney = true;
+            GameManager.instance.turretAreaActiveMoney = false;
+        }
+        else if (money >= 15)
+        {
+            tNormal.interactable = true;
+            tSMG.interactable = false;
+            tArea.interactable = false;
+            GameManager.instance.turretNormalActiveMoney = true;
+            GameManager.instance.turretSMGActiveMoney = false;
+            GameManager.instance.turretAreaActiveMoney = false;
+        }
     }
     private void SetHealthBar(float damage)
     {

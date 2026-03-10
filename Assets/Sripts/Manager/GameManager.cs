@@ -23,6 +23,10 @@ public class GameManager : MonoBehaviour
     public bool turretSMGActive;
     public bool turretAreaActive;
 
+    public bool turretNormalActiveMoney = true;
+    public bool turretSMGActiveMoney = true;
+    public bool turretAreaActiveMoney = true;
+
     public float upgradeDamage = 2f;
     public float upgradeFireFare = 0.5f;
     public float upgradeArea = 0.75f;
@@ -55,6 +59,9 @@ public class GameManager : MonoBehaviour
         currentMoney = startMoney;
         currenHealth = maxHeath;
         status = GameStatus.GameRunning;
+        turretNormalActiveMoney = true;
+        turretSMGActiveMoney = true;
+        turretAreaActiveMoney = true;
 
     }
 
@@ -108,23 +115,25 @@ public class GameManager : MonoBehaviour
 
     public void ButtonTNormal()
     {
+
         turretNormalActive = true;
         turretSMGActive = false;
         turretAreaActive = false;
-    } 
+
+    }
 
     public void ButtonSMGNormal()
     {
         turretNormalActive = false;
         turretSMGActive = true;
         turretAreaActive = false;
-    } 
+    }
 
     public void ButtonAreaNormal()
     {
         turretNormalActive = false;
         turretSMGActive = false;
         turretAreaActive = true;
-    } 
-    
+    }
+
 }

@@ -20,24 +20,25 @@ public class TurretSpawn : MonoBehaviour, IPointerClickHandler
         
         if (Active)
         {
-            if (GameManager.instance.turretNormalActive)
+            Debug.Log("ciao");
+            if (GameManager.instance.turretNormalActive && GameManager.instance.turretNormalActive)
             {
                 turret = Instantiate(turretList[0], new Vector3(spawnPoint.transform.position.x, spawnPoint.transform.position.y, spawnPoint.transform.position.z), transform.localRotation, transform);
-                OnBuildTurret?.Invoke(1);
+                OnBuildTurret?.Invoke(15);
                 GetComponent<Renderer>().material.color = Color.rebeccaPurple;
                 Active = false;
             }
-            else if (GameManager.instance.turretSMGActive)
+            else if (GameManager.instance.turretSMGActive && GameManager.instance.turretSMGActiveMoney)
             {
                 turret = Instantiate(turretList[1], new Vector3(spawnPoint.transform.position.x, spawnPoint.transform.position.y, spawnPoint.transform.position.z), transform.localRotation, transform);
-                OnBuildTurret?.Invoke(1);
+                OnBuildTurret?.Invoke(20);
                 GetComponent<Renderer>().material.color = Color.rebeccaPurple;
                 Active = false;
             }
-            else if (GameManager.instance.turretAreaActive)
+            else if (GameManager.instance.turretAreaActive && GameManager.instance.turretAreaActiveMoney)
             {
                 turret = Instantiate(turretList[2], new Vector3(spawnPoint.transform.position.x, spawnPoint.transform.position.y, spawnPoint.transform.position.z), transform.localRotation, transform);
-                OnBuildTurret?.Invoke(1);
+                OnBuildTurret?.Invoke(25);
                 GetComponent<Renderer>().material.color = Color.rebeccaPurple;
                 Active = false;
             }
